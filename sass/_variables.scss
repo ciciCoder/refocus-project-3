@@ -1,0 +1,6 @@
+$header-height: 84px;
+$footer-height: 274px;
+
+$main-min-height: calc(100vh - ($header-height + $footer-height));
+
+$card-border-radius: 6px;

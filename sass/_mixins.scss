@@ -1,0 +1,24 @@
+@use 'colors';
+@use 'functions';
+
+@mixin btn() {
+  display: block;
+  box-sizing: border-box;
+  color: colors.$text-1;
+  border: 1px solid colors.$text-1;
+  border-radius: 40px;
+  background: transparent !important;
+  transition-duration: 0.5s;
+  cursor: pointer;
+  &:hover,
+  &.btn-hover {
+    color: colors.$highlight !important;
+    border-color: colors.$highlight !important;
+  }
+  &.btn-active,
+  &:active {
+    color: colors.$text-3 !important;
+    background: colors.$highlight !important;
+    border-color: colors.$highlight !important;
+  }
+}
