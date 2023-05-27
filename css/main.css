@@ -39,6 +39,10 @@ a {
 }
 .header .header-content .actions .menu a {
   color: #ffffff;
+  transition-duration: 1s;
+}
+.header .header-content .actions .menu a:hover {
+  text-decoration: underline;
 }
 .header .header-content .actions .menu a.active {
   color: #dcf10d;
@@ -119,8 +123,22 @@ a {
   color: #9d9db5;
   z-index: 99;
 }
+.card .close svg path {
+  fill: #9d9db5;
+  transition-duration: 0.5s;
+}
 .card .close:hover {
   opacity: 1;
+  border-color: #0266ff;
+}
+.card .close:hover svg path {
+  fill: #0266ff;
+}
+.card .close:active {
+  background: #0266ff;
+}
+.card .close:active svg path {
+  fill: #ffffff;
 }
 .card .card-info {
   z-index: 3;
@@ -137,9 +155,10 @@ a {
   gap: 20px;
   background: #f8f9fc;
 }
-.card .card-info hr {
+.card .card-info .divider {
   width: 100%;
   border: 0.5px solid #9d9db5;
+  border-bottom: transparent;
 }
 .card .card-info .avatar-1 {
   display: flex;
@@ -178,6 +197,9 @@ a {
 }
 .card .card-info .avatar-1.fading:hover .verified-icon {
   fill: #0266ff;
+}
+.card .card-info .avatar-1.fading:active .verified-icon {
+  fill: #ffffff;
 }
 .card .card-info .avatar-2 {
   display: flex;
@@ -333,7 +355,11 @@ a {
   color: #d7f8ff !important;
 }
 .footer .footer-content .footer-nav-group .footer-nav .menu a {
+  transition-duration: 1s;
   color: #d7f8ff !important;
+}
+.footer .footer-content .footer-nav-group .footer-nav .menu a:hover {
+  text-decoration: underline;
 }
 
 .btn-1 {

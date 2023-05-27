@@ -22,3 +22,10 @@
     border-color: colors.$highlight !important;
   }
 }
+
+@mixin menu-item-hover() {
+  transition-duration: 1s;
+  &:hover {
+    text-decoration: underline;
+  }
+}

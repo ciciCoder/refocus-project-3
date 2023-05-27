@@ -41,7 +41,7 @@ a {
 
         a {
           color: colors.$text-3;
-
+          @include mixins.menu-item-hover();
           &.active {
             color: colors.$primary;
             text-decoration: underline;
@@ -134,8 +134,22 @@ a {
     border-radius: 50%;
     color: colors.$text-1;
     z-index: 99;
+    svg path {
+      fill: colors.$text-1;
+      transition-duration: 0.5s;
+    }
     &:hover {
       opacity: 1;
+      border-color: colors.$highlight;
+      svg path {
+        fill: colors.$highlight;
+      }
+    }
+    &:active {
+      background: colors.$highlight;
+      svg path {
+        fill: colors.$text-3;
+      }
     }
   }
   .card-info {
@@ -152,9 +166,10 @@ a {
     padding: 10px 20px;
     gap: 20px;
     background: colors.$accent;
-    hr {
+    .divider {
       width: 100%;
       border: 0.5px solid colors.$text-1;
+      border-bottom: transparent;
     }
     .avatar-1 {
       display: flex;
@@ -174,6 +189,11 @@ a {
           opacity: 1;
           .verified-icon {
             fill: colors.$highlight;
+          }
+        }
+        &:active {
+          .verified-icon {
+            fill: colors.$text-3;
           }
         }
       }
@@ -339,6 +359,7 @@ a {
           letter-spacing: -0.03em;
           color: colors.$text-2 !important;
           a {
+            @include mixins.menu-item-hover();
             color: colors.$text-2 !important;
           }
         }
