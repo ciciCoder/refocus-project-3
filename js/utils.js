@@ -24,6 +24,13 @@ const ref = (function () {
     return { templateHTML, container };
   }
 
+  /**
+   * Description
+   * @param {{Object.<string, any>}} variables
+   * @param {string} templateHTML
+   * @param {Element} container
+   * @returns {void}
+   */
   function renderMustach(variables, templateHTML, container) {
     const html = Mustache.render(templateHTML, variables);
     container.innerHTML = html;

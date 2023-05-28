@@ -272,6 +272,11 @@
     ];
 
     const cardsRef = ref('#card-template', 'cards', cards);
+    /**
+     * Description
+     * @param {number} index
+     * @returns {void}
+     */
 
     function likedArticle(index) {
       const card = cardsRef.value[index];
@@ -280,10 +285,20 @@
       cardsRef.value[index] = card;
     }
 
+    /**
+     * Description
+     * @param {number} index
+     * @returns {void}
+     */
     function removeArticle(index) {
       cardsRef.value.splice(index, 1);
     }
 
+    /**
+     * Description
+     * @param {number} index
+     * @returns {void}
+     */
     function readArticle(index) {
       const card = cardsRef.value[index];
       card.verified = true;
