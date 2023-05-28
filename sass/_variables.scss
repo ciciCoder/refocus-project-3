@@ -3,4 +3,11 @@ $footer-height: 274px;
 
 $main-min-height: calc(100vh - ($header-height + $footer-height));
 
+$break-points: (
+  lg: 1040px,
+  md: 680px,
+  sm: 320px,
+  xs: 290px,
+);
+
 $card-border-radius: 6px;

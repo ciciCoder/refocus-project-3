@@ -193,100 +193,104 @@
 <script src="https://cdn.jsdelivr.net/npm/mustache@4.2.0/mustache.min.js"></script>
 <script src="./js/utils.js"></script>
 <script>
-  const cards = [
-    {
-      title: "Front-End vs Back-End Developer: What's the Difference?",
-      style: "background:url('./assets/img/image1.png');",
-      class: 'shadow',
-      date: 'January 3, 2023',
-      likes: '4.8 k',
-      liked: false,
-      verified: true,
-    },
-    {
-      title: 'What is a Full Stack Developer?',
-      style: "background:url('./assets/img/image2.png');",
-      date: 'January 12, 2023',
-      likes: '3,2 k',
-      liked: false,
-      verified: false,
-    },
-    {
-      title: 'What are Soft Skills and How Do They Benefit Your Career?',
-      style: "background:url('./assets/img/image3.png');",
-      date: 'January 22, 2023',
-      likes: '2,6 k',
-      liked: true,
-      verified: true,
-    },
-    {
-      title: 'IT Jobs: In-Demand, Available to Everyone, Ripe With Opportunity',
-      style: "background:url('./assets/img/image4.png');",
-      date: 'January 29, 2023',
-      likes: '7,6 k',
-      liked: true,
-      verified: true,
-    },
-    {
-      title: '7 Learning Tips for Data Science Self-Study',
-      style: "background:url('./assets/img/image5.png');",
-      date: 'Febuary 1, 2023',
-      likes: '1,5 k',
-      liked: false,
-      verified: false,
-    },
-    {
-      title: 'Hard Skills vs. Soft Skills: Do You Really Need Both? Why?',
-      style: "background:url('./assets/img/image6.png');",
-      date: 'Febuary 10, 2023',
-      likes: '4,9 k',
-      liked: false,
-      verified: false,
-    },
-    {
-      title: 'What is JavaScript?',
-      style: "background:url('./assets/img/image7.png');",
-      date: 'Febuary 16, 2023',
-      likes: '3,1 k',
-      liked: false,
-      verified: false,
-    },
-    {
-      title: 'Who  is a Business Analyst: Roles, Skills, Salaries, Job Prospects',
-      style: "background:url('./assets/img/image8.png');",
-      date: 'Febuary 22, 2023',
-      likes: '2,4 k',
-      liked: false,
-      verified: false,
-    },
-    {
-      title: 'How Much Do Data Analysts Make? 2023 Salary Guide',
-      style: "background:url('./assets/img/image9.png');",
-      date: 'Febuary 24, 2023',
-      likes: '2,6 k',
-      liked: true,
-      verified: true,
-    },
-  ];
+  const { readArticle, likedArticle, removeArticle } = (function () {
 
-  const cardsRef = ref('#card-template', 'cards', cards);
+    const cards = [
+      {
+        title: "Front-End vs Back-End Developer: What's the Difference?",
+        style: "background:url('./assets/img/image1.png');",
+        class: 'shadow',
+        date: 'January 3, 2023',
+        likes: '4.8 k',
+        liked: false,
+        verified: true,
+      },
+      {
+        title: 'What is a Full Stack Developer?',
+        style: "background:url('./assets/img/image2.png');",
+        date: 'January 12, 2023',
+        likes: '3,2 k',
+        liked: false,
+        verified: false,
+      },
+      {
+        title: 'What are Soft Skills and How Do They Benefit Your Career?',
+        style: "background:url('./assets/img/image3.png');",
+        date: 'January 22, 2023',
+        likes: '2,6 k',
+        liked: true,
+        verified: true,
+      },
+      {
+        title: 'IT Jobs: In-Demand, Available to Everyone, Ripe With Opportunity',
+        style: "background:url('./assets/img/image4.png');",
+        date: 'January 29, 2023',
+        likes: '7,6 k',
+        liked: true,
+        verified: true,
+      },
+      {
+        title: '7 Learning Tips for Data Science Self-Study',
+        style: "background:url('./assets/img/image5.png');",
+        date: 'Febuary 1, 2023',
+        likes: '1,5 k',
+        liked: false,
+        verified: false,
+      },
+      {
+        title: 'Hard Skills vs. Soft Skills: Do You Really Need Both? Why?',
+        style: "background:url('./assets/img/image6.png');",
+        date: 'Febuary 10, 2023',
+        likes: '4,9 k',
+        liked: false,
+        verified: false,
+      },
+      {
+        title: 'What is JavaScript?',
+        style: "background:url('./assets/img/image7.png');",
+        date: 'Febuary 16, 2023',
+        likes: '3,1 k',
+        liked: false,
+        verified: false,
+      },
+      {
+        title: 'Who  is a Business Analyst: Roles, Skills, Salaries, Job Prospects',
+        style: "background:url('./assets/img/image8.png');",
+        date: 'Febuary 22, 2023',
+        likes: '2,4 k',
+        liked: false,
+        verified: false,
+      },
+      {
+        title: 'How Much Do Data Analysts Make? 2023 Salary Guide',
+        style: "background:url('./assets/img/image9.png');",
+        date: 'Febuary 24, 2023',
+        likes: '2,6 k',
+        liked: true,
+        verified: true,
+      },
+    ];
 
-  function likedArticle(index) {
-    const card = cardsRef.value[index];
-    card.liked = !card.liked;
-    card.heartClass = 'animate__animted animate__heartBeat';
-    cardsRef.value[index] = card;
-  }
+    const cardsRef = ref('#card-template', 'cards', cards);
 
-  function removeArticle(index) {
-    cardsRef.value.splice(index, 1);
-  }
+    function likedArticle(index) {
+      const card = cardsRef.value[index];
+      card.liked = !card.liked;
+      card.heartClass = 'animate__animted animate__heartBeat';
+      cardsRef.value[index] = card;
+    }
 
-  function readArticle(index) {
-    const card = cardsRef.value[index];
-    card.verified = true;
-    cardsRef.value[index] = card;
-  }
+    function removeArticle(index) {
+      cardsRef.value.splice(index, 1);
+    }
+
+    function readArticle(index) {
+      const card = cardsRef.value[index];
+      card.verified = true;
+      cardsRef.value[index] = card;
+    }
+    return { likedArticle, removeArticle, readArticle };
+  })();
 
 </script>
 

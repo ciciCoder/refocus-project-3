@@ -27,10 +27,9 @@ a {
   .header-content {
     display: flex;
     box-sizing: border-box;
-    padding: 0 80px;
     justify-content: space-between;
     align-items: center;
-    width: 1200px;
+    width: map-get($break-points, lg);
     margin: 0 auto;
     .actions {
       display: flex;
@@ -85,7 +84,8 @@ a {
   grid-template-columns: 1fr 1fr 1fr;
   gap: 40px;
   box-sizing: border-box;
-  padding: 60px 80px;
+  width: map-get($break-points, lg);
+  margin: 60px auto;
   .section-item {
     display: flex;
     justify-content: center;
@@ -252,7 +252,8 @@ a {
   /* Inside auto layout */
   .footer-content {
     position: relative;
-    width: 1200px;
+    margin: 0 auto;
+    width: map-get($break-points, lg);
     display: flex;
     justify-content: space-between;
     .copyright-content {
@@ -267,7 +268,7 @@ a {
         row-gap: 10px;
         color: colors.$text-3;
         box-sizing: border-box;
-        padding-right: 100px;
+        padding-right: 20px;
         .label {
           font-style: normal;
           font-weight: 400;
@@ -313,7 +314,6 @@ a {
         display: flex;
         box-sizing: border-box;
         justify-content: end;
-        padding-right: 89px;
         gap: 10px;
         font-weight: 400;
         font-size: 12px;
@@ -339,7 +339,7 @@ a {
       gap: 40px;
       box-sizing: border-box;
       padding-top: 60px;
-      padding-left: 80px;
+      // padding-left: 80px;
       .footer-nav {
         display: flex;
         flex-direction: column;
@@ -400,12 +400,49 @@ a {
   fill: colors.$title;
 }
 
-@media screen and (max-width: 1199px) {
+@media screen and (max-width: calc(map-get($break-points, lg) + 80px)) {
+  .header-content {
+    width: map-get($break-points, md) !important;
+  }
   .sections {
+    width: map-get($break-points, md);
     grid-template-columns: 1fr 1fr;
   }
+  .footer {
+    height: 429px;
+    .footer-content {
+      width: map-get($break-points, md);
+      flex-direction: column;
+      justify-content: start;
+      .footer-nav-group {
+        gap: 30px;
+      }
+      .copyright-content {
+        gap: 40px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: calc(map-get($break-points, md) + 80px)) {
+  .header-content {
+    width: map-get($break-points, sm) !important;
+    .actions {
+      .nav-button {
+        display: block;
+      }
+      .menu,
+      .login-btns {
+        display: none !important;
+      }
+    }
+  }
+
+  .sections {
+    width: map-get($break-points, sm) !important;
+    grid-template-columns: 1fr;
+  }
   .card {
-    width: 290px;
     height: 257px;
     .card-info {
       gap: 10px;
@@ -414,95 +451,38 @@ a {
       }
     }
   }
-  .footer {
-    height: 429px;
-    .footer-content {
-      flex-direction: column;
-      justify-content: start;
-      .footer-nav-group {
-        gap: 30px;
-      }
-      .copyright-content {
-        padding: inherit 0;
-        padding-left: 80px;
-        padding-top: 40px;
-        gap: 40px;
-      }
-    }
-  }
-}
 
-@media screen and (max-width: 847px) {
-  .header {
-    .header-content {
-      .actions {
-        .nav-button {
-          display: block;
-        }
-        .menu {
-          display: none;
-        }
-        .login-btns {
-          display: none;
-        }
-      }
-    }
-  }
-}
-
-@media screen and (max-width: 770px) {
-  .sections {
-    padding: 60px 0;
-    grid-template-columns: 1fr;
-  }
-  .footer-nav-group {
-    padding-top: 40px !important;
-    .footer-nav {
-      .menu {
-        width: 290px !important;
-        flex-wrap: wrap;
-      }
-    }
-  }
-  .legality {
-    justify-content: start !important;
-    padding: 0 !important;
-  }
-}
-
-@media screen and (max-width: 500px) {
-  .sections {
-    padding: 60px 0;
-    grid-template-columns: 1fr;
-  }
   .footer-content {
-    width: 290px !important;
-    margin: 0 auto;
-    * {
-      padding-left: 0 !important;
-      padding-right: 0 !important;
-    }
-    .footer-nav {
-      .menu {
-        width: 290px !important;
-        flex-wrap: wrap;
+    width: map-get($break-points, sm) !important;
+    .footer-nav-group {
+      padding-top: 40px !important;
+      .footer-nav {
+        .menu {
+          width: 290px !important;
+          flex-wrap: wrap;
+        }
       }
     }
-  }
-  .legality {
-    justify-content: start !important;
-    padding: 0 !important;
+    .legality {
+      justify-content: start !important;
+      padding: 0 !important;
+    }
   }
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: calc(map-get($break-points, sm) + 40px)) {
   .header {
     align-items: end;
     padding-bottom: 10px;
     .header-content {
-      width: 290px !important;
-      padding: 0 !important;
-      margin: 0 auto;
+      width: map-get($break-points, xs) !important;
     }
+  }
+  .card {
+    width: map-get($break-points, xs) !important;
+  }
+
+  .footer-content {
+    width: map-get($break-points, xs) !important;
   }
 }

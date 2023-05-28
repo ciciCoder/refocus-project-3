@@ -23,10 +23,9 @@ a {
 .header .header-content {
   display: flex;
   box-sizing: border-box;
-  padding: 0 80px;
   justify-content: space-between;
   align-items: center;
-  width: 1200px;
+  width: 1040px;
   margin: 0 auto;
 }
 .header .header-content .actions {
@@ -78,7 +77,8 @@ a {
   grid-template-columns: 1fr 1fr 1fr;
   gap: 40px;
   box-sizing: border-box;
-  padding: 60px 80px;
+  width: 1040px;
+  margin: 60px auto;
 }
 .sections .section-item {
   display: flex;
@@ -251,7 +251,8 @@ a {
 }
 .footer .footer-content {
   position: relative;
-  width: 1200px;
+  margin: 0 auto;
+  width: 1040px;
   display: flex;
   justify-content: space-between;
 }
@@ -268,7 +269,7 @@ a {
   row-gap: 10px;
   color: #ffffff;
   box-sizing: border-box;
-  padding-right: 100px;
+  padding-right: 20px;
 }
 .footer .footer-content .copyright-content .social-media .label {
   font-style: normal;
@@ -313,7 +314,6 @@ a {
   display: flex;
   box-sizing: border-box;
   justify-content: end;
-  padding-right: 89px;
   gap: 10px;
   font-weight: 400;
   font-size: 12px;
@@ -333,7 +333,6 @@ a {
   gap: 40px;
   box-sizing: border-box;
   padding-top: 60px;
-  padding-left: 80px;
 }
 .footer .footer-content .footer-nav-group .footer-nav {
   display: flex;
@@ -442,12 +441,45 @@ a {
   fill: #10131c;
 }
 
-@media screen and (max-width: 1199px) {
+@media screen and (max-width: 1120px) {
+  .header-content {
+    width: 680px !important;
+  }
   .sections {
+    width: 680px;
     grid-template-columns: 1fr 1fr;
   }
+  .footer {
+    height: 429px;
+  }
+  .footer .footer-content {
+    width: 680px;
+    flex-direction: column;
+    justify-content: start;
+  }
+  .footer .footer-content .footer-nav-group {
+    gap: 30px;
+  }
+  .footer .footer-content .copyright-content {
+    gap: 40px;
+  }
+}
+@media screen and (max-width: 760px) {
+  .header-content {
+    width: 320px !important;
+  }
+  .header-content .actions .nav-button {
+    display: block;
+  }
+  .header-content .actions .menu,
+  .header-content .actions .login-btns {
+    display: none !important;
+  }
+  .sections {
+    width: 320px !important;
+    grid-template-columns: 1fr;
+  }
   .card {
-    width: 290px;
     height: 257px;
   }
   .card .card-info {
@@ -456,81 +488,33 @@ a {
   .card .card-info .card-title {
     font-size: 15px !important;
   }
-  .footer {
-    height: 429px;
+  .footer-content {
+    width: 320px !important;
   }
-  .footer .footer-content {
-    flex-direction: column;
-    justify-content: start;
-  }
-  .footer .footer-content .footer-nav-group {
-    gap: 30px;
-  }
-  .footer .footer-content .copyright-content {
-    padding: inherit 0;
-    padding-left: 80px;
-    padding-top: 40px;
-    gap: 40px;
-  }
-}
-@media screen and (max-width: 847px) {
-  .header .header-content .actions .nav-button {
-    display: block;
-  }
-  .header .header-content .actions .menu {
-    display: none;
-  }
-  .header .header-content .actions .login-btns {
-    display: none;
-  }
-}
-@media screen and (max-width: 770px) {
-  .sections {
-    padding: 60px 0;
-    grid-template-columns: 1fr;
-  }
-  .footer-nav-group {
+  .footer-content .footer-nav-group {
     padding-top: 40px !important;
   }
-  .footer-nav-group .footer-nav .menu {
+  .footer-content .footer-nav-group .footer-nav .menu {
     width: 290px !important;
     flex-wrap: wrap;
   }
-  .legality {
+  .footer-content .legality {
     justify-content: start !important;
     padding: 0 !important;
   }
 }
-@media screen and (max-width: 500px) {
-  .sections {
-    padding: 60px 0;
-    grid-template-columns: 1fr;
-  }
-  .footer-content {
-    width: 290px !important;
-    margin: 0 auto;
-  }
-  .footer-content * {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-  }
-  .footer-content .footer-nav .menu {
-    width: 290px !important;
-    flex-wrap: wrap;
-  }
-  .legality {
-    justify-content: start !important;
-    padding: 0 !important;
-  }
-}
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 360px) {
   .header {
     align-items: end;
     padding-bottom: 10px;
   }
   .header .header-content {
     width: 290px !important;
-    padding: 0 !important;
-    margin: 0 auto;
+  }
+  .card {
+    width: 290px !important;
+  }
+  .footer-content {
+    width: 290px !important;
   }
 }/*# sourceMappingURL=main.css.map */
