@@ -425,15 +425,19 @@ a {
 }
 
 @media screen and (max-width: calc(map-get($break-points, md) + 80px)) {
-  .header-content {
-    width: map-get($break-points, sm) !important;
-    .actions {
-      .nav-button {
-        display: block;
-      }
-      .menu,
-      .login-btns {
-        display: none !important;
+  .header {
+    align-items: end;
+    padding-bottom: 10px;
+    .header-content {
+      width: map-get($break-points, sm) !important;
+      .actions {
+        .nav-button {
+          display: block;
+        }
+        .menu,
+        .login-btns {
+          display: none !important;
+        }
       }
     }
   }
@@ -472,8 +476,6 @@ a {
 
 @media screen and (max-width: calc(map-get($break-points, sm) + 40px)) {
   .header {
-    align-items: end;
-    padding-bottom: 10px;
     .header-content {
       width: map-get($break-points, xs) !important;
     }

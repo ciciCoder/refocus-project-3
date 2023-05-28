@@ -465,14 +465,18 @@ a {
   }
 }
 @media screen and (max-width: 760px) {
-  .header-content {
+  .header {
+    align-items: end;
+    padding-bottom: 10px;
+  }
+  .header .header-content {
     width: 320px !important;
   }
-  .header-content .actions .nav-button {
+  .header .header-content .actions .nav-button {
     display: block;
   }
-  .header-content .actions .menu,
-  .header-content .actions .login-btns {
+  .header .header-content .actions .menu,
+  .header .header-content .actions .login-btns {
     display: none !important;
   }
   .sections {
@@ -504,10 +508,6 @@ a {
   }
 }
 @media screen and (max-width: 360px) {
-  .header {
-    align-items: end;
-    padding-bottom: 10px;
-  }
   .header .header-content {
     width: 290px !important;
   }
